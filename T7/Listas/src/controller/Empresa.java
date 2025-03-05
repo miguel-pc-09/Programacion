@@ -16,7 +16,7 @@ public class Empresa {
         this.listaDespedidos = new ArrayList<>();
     }
 
-    // Metodo para añadir o contratar trabajadores con el (add)
+    // Metodo para añadir o contratar trabajadores con él (add)
     public void contratarTrabajador(Trabajador trabajador){
         if(estaTrabajador(trabajador.getDni())!=null){
         // no se puede contratar un trabajador si ya tengo uno con el mismo dni
