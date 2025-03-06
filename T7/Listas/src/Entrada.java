@@ -1,5 +1,7 @@
 import controller.Empresa;
+import controller.EmpresaHash;
 import model.Trabajador;
+import model.TrabajadorAsalariado;
 
 public class Entrada {
 
@@ -7,8 +9,16 @@ public class Entrada {
 
     public static void main(String[] args) {
 
-        Empresa empresa = new Empresa("UE");
-        empresa.mostrarTrabajadores();
+        //Empresa empresa = new Empresa("UE");
+        EmpresaHash empresa = new EmpresaHash();
+        empresa.agregarTrabajador(new TrabajadorAsalariado("Miguel", "Perucha", "correo@gmail.com", "123456A", 12344, 2345));
+        empresa.agregarTrabajador(new Trabajador("MiguelB", "PeruchaB", "correo@gmail.com", "123456B", 12344));
+        empresa.agregarTrabajador(new Trabajador("Miguel", "Perucha", "correo@gmail.com", "123456D", 12344));
+        //empresa.obtenerTrabajador("123456A");
+        empresa.eliminarTrabajador("123456B");
+        empresa.agregarTrabajador(new Trabajador("Miguel", "Perucha", "correo@gmail.com", "123456A", 12344));
+        empresa.listarTrabajadores();
+        /*empresa.mostrarTrabajadores();
         // trabajadores : 0 []
         empresa.contratarTrabajador(new Trabajador("Miguel", "Perucha", "correo@gmail.com", "123456A", 12344));
         empresa.contratarTrabajador(new Trabajador("Borja", "Martin", "correo@gmail.com", "123456B", 12345));
@@ -25,7 +35,7 @@ public class Entrada {
         //empresa.mostrarTrabajadores(); // para llamar y ver todos
         empresa.obtenerTrabajador("123456B");
         empresa.despedirTodos();
-        empresa.mostrarTrabajadores();
+        empresa.mostrarTrabajadores();*/
 
     }
 }

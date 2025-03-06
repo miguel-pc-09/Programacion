@@ -26,6 +26,9 @@ public class Trabajador {
         System.out.println("telefono = " + telefono);
     }
 
+    // Metodo abstracto ->
+    //abstract public void calcularSalario();
+
     public String getNombre() {
         return nombre;
     }
