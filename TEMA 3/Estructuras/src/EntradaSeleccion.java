@@ -37,7 +37,7 @@ public class EntradaSeleccion {
             default:
                 System.out.println("Mes no valido");
         }
-        System.out.println("Terminando");
+        System.out.println("Saliendo del terminal");
     }
 
     public static void estructuraIF(){
