@@ -6,7 +6,10 @@ public class Entrada {
     public static void main(String[] args) {
         //ejercicioUno();
         //ejercicioDos();
-        ejercicioTres();
+        //ejercicioTres();
+        //ejercicioCuatro();
+        //ejercicioCinco();
+        ejercicioSeis();
 
 
 
@@ -80,9 +83,6 @@ public class Entrada {
     public static void ejercicioCuatro(){
         System.out.println("Ingrese un numero del 1 al 12: ");
         int mes = teclado.nextInt();
-        if(mes==2){
-
-        }
         switch (mes){
             case 1:
                 System.out.println("Enero tiene 31 dias");
@@ -123,5 +123,76 @@ public class Entrada {
         }
 
 
+    }
+
+    // Escribe un programa que pida al usuario ingresar un número del 1 al 12 y muestre el nombre del mes correspondiente utilizando una sentencia switch.
+    public static void ejercicioCinco(){
+        System.out.println("Ingrese un numero del 1 al 12 y te dire que mes corresponde: ");
+        int mes = teclado.nextInt();
+        switch (mes){
+            case 1:
+                System.out.println("Enero friolero  ");
+                break;
+            case 2:
+                System.out.println("Febreo ventolero");
+                break;
+            case 3:
+                System.out.println("Marzo airado");
+                break;
+            case 4:
+                System.out.println("Abril variado");
+                break;
+            case 5:
+                System.out.println("Mayo hermoso");
+                break;
+            case 6:
+                System.out.println("Junio fogoso");
+                break;
+            case 7:
+                System.out.println("Julio claro");
+                break;
+            case 8:
+                System.out.println("Agosto raro");
+                break;
+            case 9:
+                System.out.println("Septimbre extravagante");
+                break;
+            case 10:
+                System.out.println("Octubre abundante");
+                break;
+            case 11:
+                System.out.println("Noviembre llovedero");
+                break;
+            case 12:
+                System.out.println("Diciembre nevadero");
+                break;
+        }
+    }
+
+    // Crea un programa que permita al usuario ingresar un número del 1 al 4 y muestre un mensaje diferente para cada número utilizando una sentencia
+    // switch (por ejemplo, "Opción 1 seleccionada", "Opción 2 seleccionada", etc.).
+    public static void ejercicioSeis(){
+        System.out.println("Elija una opcion: ");
+        System.out.println("1. Opcion 1");
+        System.out.println("2. Opcion 2");
+        System.out.println("3. Opcion 3");
+        System.out.println("4. Opcion 4");
+        int opcion = teclado.nextInt();
+        switch (opcion){
+            case 1:
+                System.out.println("opcion 1 seleccionada");
+                break;
+            case 2:
+                System.out.println("opcion 2 seleccionada");
+                break;
+            case 3:
+                System.out.println("opcion 3 seleccionada");
+                break;
+            case 4:
+                System.out.println("opcion 4 seleccionada");
+                break;
+            default:
+                System.out.println("opcion no valida");
+        }
     }
 }
