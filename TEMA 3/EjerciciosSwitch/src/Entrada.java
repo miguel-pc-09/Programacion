@@ -195,4 +195,15 @@ public class Entrada {
                 System.out.println("opcion no valida");
         }
     }
+
+    // suma entre dos numeros
+    public static void resta(){
+        System.out.println("Ingrese el primer numero: ");
+        int num1 = teclado.nextInt();
+        System.out.println("Ingrese el segundo numero: ");
+        int num2 = teclado.nextInt();
+        int suma = num1 + num2;
+        System.out.println("La suma es: " + suma);
+    }
+    }
 }
