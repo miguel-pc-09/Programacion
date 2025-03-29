@@ -9,8 +9,10 @@ public class Entrada {
         //ejercicioTres();
         //ejercicioCuatro();
         //ejercicioCinco();
-        ejercicioSeis();
-
+        //ejercicioSeis();
+        //ejercicioSiete();
+       // ejercicioOcho();
+        ejercicioNueve();
 
 
 
@@ -197,13 +199,96 @@ public class Entrada {
     }
 
     // suma entre dos numeros
-    public static void resta(){
+/*public static void resta(){
         System.out.println("Ingrese el primer numero: ");
         int num1 = teclado.nextInt();
         System.out.println("Ingrese el segundo numero: ");
         int num2 = teclado.nextInt();
         int suma = num1 + num2;
         System.out.println("La suma es: " + suma);
+    }*/
+    // Desarrolla un programa que solicite al usuario ingresar una nota del 1 al 5 y muestre un mensaje de calificación
+    // utilizando una sentencia switch (por ejemplo, "Suspenso", "Aprobado", "Notable", "Sobresaliente", etc.).
+    public static void ejercicioSiete(){
+        System.out.println("Introduce una nota del 1 al 5: ");
+        int nota = teclado.nextInt();
+        switch (nota){
+            case 1:
+                System.out.println("Suspenso");
+                break;
+            case 2:
+                System.out.println("Aprobado");
+                break;
+            case 3:
+                System.out.println("Notable");
+                break;
+            case 4:
+                System.out.println("Sobresaliente");
+                break;
+            case 5:
+                System.out.println("Matricula");
+                break;
+            default:
+                System.out.println("Nota no valida");
+        }
     }
+
+    // Realiza un programa que pida al usuario ingresar un carácter que represente una operación matemática (+, -, *, /)
+    // y dos números. Luego, utiliza una sentencia switch para realizar la operación correspondiente y mostrar el resultado.
+    public static void ejercicioOcho(){
+        System.out.println("Ingrese un operador (+, -, *, /): ");
+        char operador = teclado.next().charAt(0);
+        System.out.println("Ingrese el primer numero: ");
+        int num1 = teclado.nextInt();
+        System.out.println("Ingrese el segundo numero: ");
+        int num2 = teclado.nextInt();
+        switch (operador){
+            case '+':
+                int suma = num1 + num2;
+                System.out.println("La suma es: "+suma);
+                break;
+            case '-':
+                int resta = num1 - num2;
+                System.out.println("La resta es: "+resta);
+                break;
+            case '*':
+                int multiplicacion = num1 * num2;
+                System.out.println("La multiplicacion es: "+multiplicacion);
+                break;
+            case '/':
+                double division = (double) num1 / num2;
+                System.out.println("La division es: "+division);
+                break;
+            default:
+                System.out.println("Operador no valido");
+        }
     }
+
+    // Escribe un programa que solicite al usuario ingresar un número del 1 al 12 y muestre la estación del año
+    // correspondiente (por ejemplo, "Primavera", "Verano", "Otoño", "Invierno") utilizando una sentencia switch.
+    public static void ejercicioNueve(){
+        System.out.println("Ingrese un numero del 1 al 12: ");
+        int mes = teclado.nextInt();
+        switch (mes){
+            case 3,4,5:
+                System.out.println("primavera");
+                break;
+            case 6,7,8:
+                System.out.println("Verano");
+                break;
+            case 9,10,11:
+                System.out.println("Otoño");
+                break;
+            case 12,1,2:
+                System.out.println("Invierno");
+                break;
+            default:
+                System.out.println("Mes del año no valido");
+        }
+    }
+
+    // Crea un programa que permita al usuario ingresar un código de producto (como una cadena de caracteres) y,
+    // utilizando una sentencia switch, muestre el nombre del producto y su precio correspondiente
+    public static void ejercicioDiez(){}
 }
+
