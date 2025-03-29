@@ -29,29 +29,38 @@ public class Entrada {
         // SEGUN LO QUE GUARDA -> int, char, String, boolean, float, double
         // NUMEROS
         // sin decimales -> byte, short, int, long
+
         int edad;
         edad = 50;
+
         // con decimales -> float, double
         float altura = 1.74f;
         double salario = 209876.87;
+
         // LETRA
-        char letra = 'a';
+        char letra = 'a'; // PRIMITIVA
+
         // PALABRA
-        String palabra = "Borja";
+        String palabra = "Borja"; // COMPLEJA
+
         // BOOLEAN -> true o false
-        boolean acierto = false; // true
+        boolean acierto = false; // true -> PRIMITIVA
+
         // CUALQUIER COSA
-        Object cosa = "asdasd";
+        Object cosa = "asdasd"; // COMPLEJA
+
         palabra = "otro valor";
         edad = 65;
-        altura = 2.56f;
+        altura = 2.56f; // Si declaro float pongo f al final del numero.
         acierto = true;
-        // SEGUN LA CONSTRUCCION DEL VALOR ->
+
+        // SEGUN LA CONSTRUCCION DEL VALOR -> primitivas / complejas
         // primitivas (empieza con minuscula el tipo) /
         // complejas (el tipo empieza con mayusculas)
 
-        // SEGUN SI PUEDO CAMBIAR SU VALOR O NO. mutables - nomutables ó CONSTANTES
+        // SEGUN SI PUEDO CAMBIAR SU VALOR O NO. mutables - no mutables ó CONSTANTES
         final String DNI = "0987654321A";
+        
         // SEGUN SU AMBITO -> donde puede ser accedida la variable -> de clase o de bloque
 
         String nombre="Miguel";
@@ -71,6 +80,31 @@ public class Entrada {
                 ,salario);
         System.out.println("Esta es la siguiente linea");
     }
+        // ejecuciones
+        // tipo nombre = VALOR?
+        // el nombre de las variables.empieza en minuscula, representativo
+    // SEGUN LO QUE GUARDA -> int, char, String, boolean, float, double
+        // NUMEROS
+        // sin decimales -> byte, short, int, long
+    int edad = 36;
+    // con decimales -> float, double
+    float altura = 1.75f;
+    double salario = 209876.87;
+
+    // LETRA
+    char letra = 'a';
+
+    // PALABRA
+    String palabra = "miguel";
+
+    // BOOLEAN
+    boolean acierto = false; // true
+
+    // Cualquier cosa
+    Object cosa = "asdasd";
+
+
+
 
     public void metodoUno(){
         edadClase = 60;
