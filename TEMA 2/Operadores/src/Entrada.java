@@ -164,16 +164,24 @@ public class Entrada {
         Son distintas
          */
         // lector teclado
-        String palabra1, palabra2;
+        String palabra1, palabra2, palabra3, palabra4;
         System.out.println("Indica cual es la primera palabra");
         palabra1 = lectorTeclado.next();
         System.out.println("Indica cual es la segunda palabra");
         palabra2 = lectorTeclado.next();
+        System.out.println("Indica 2 palabras ");
+        palabra3 = lectorTeclado.next();
+        System.out.println("Indica otras dos palabras mas");
+        palabra4 = lectorTeclado.next();
 
         boolean iguales = palabra1.equals(palabra2); // Son iguales importanto mayusculas / minusculas // Hola - hola
         boolean igualesSinCap = palabra1.equalsIgnoreCase(palabra2); // son iguales sin importar mayusculas / minusculas // Hola - hola
         boolean segundaMenor = palabra2.length() < palabra1.length(); // menos letras
         boolean sonDistintas = !palabra1.equalsIgnoreCase(palabra2); // uno uno -> True -> false
+
+        //String tamano3 = Parse.palabra3.length();
+        //System.out.println("Tamaño de la palabra3 "+tamano3);
+
 
         System.out.println("Son iguales con CAPS "+iguales);
         System.out.println("Son iguales sin CAPS "+igualesSinCap);
