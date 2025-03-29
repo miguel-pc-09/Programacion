@@ -60,7 +60,7 @@ public class Entrada {
 
         // SEGUN SI PUEDO CAMBIAR SU VALOR O NO. mutables - no mutables ó CONSTANTES
         final String DNI = "0987654321A";
-        
+
         // SEGUN SU AMBITO -> donde puede ser accedida la variable -> de clase o de bloque
 
         String nombre="Miguel";
@@ -71,9 +71,11 @@ public class Entrada {
         // Hola mi nombre es miguel, tengo 36 años y mido 1.90
         System.out.println("Hola mi nombre es "+nombre+", tengo "+edad+" años y mido "+altura);// salto de linea
         System.out.println("Esta es la siguiente linea");
+
+        // FORMATEO
         // String -> %s
         // int -> %d
-        // float, double -> %.2f
+        // float, double -> %f // SI QUIERO DECIMALES %.2F -> saca dos deciamles. Si no indicamos saca tantos como tenga
         // boolean -> %b
         // char -> %c
         System.out.printf("Hola mi nombre es %s, tengo %d años y mido %.2f cm, mi salario es %.4f\n",nombre,edad,altura
