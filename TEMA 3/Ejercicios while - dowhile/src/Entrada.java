@@ -5,7 +5,8 @@ public class Entrada {
     public static void main(String[] args) {
         //ejercicioUno();
         //ejercicioDos();
-        ejercicioTres();
+        //ejercicioTres();
+        ejercicioCuatro();
 
     }
 
@@ -99,7 +100,28 @@ public class Entrada {
     }
 
     // Ejercicio 4: Introducir un entero no negativo, y convertirlo a binario, octal y hexadecimal. (BinarioOctalHexadecimal)
-    public static void ejercicioCuatro(){}
+    public static void ejercicioCuatro(){
+        System.out.print("Introduce un numero: ");
+        int numero = teclado.nextInt();
+        do {
+            System.out.print("Introduce un número entero NO negativo: ");
+            numero = teclado.nextInt();
+            if (numero < 0) {
+                System.out.println("❌ El número no puede ser negativo. Inténtalo de nuevo.");
+            }
+        } while (numero < 0);
+
+        // Conversión
+        String binario = Integer.toBinaryString(numero);
+        String octal = Integer.toOctalString(numero);
+        String hexadecimal = Integer.toHexString(numero).toUpperCase();
+
+        // Resultado
+        System.out.println("\nRepresentaciones:");
+        System.out.println("🔹 Binario: " + binario);
+        System.out.println("🔹 Octal: " + octal);
+        System.out.println("🔹 Hexadecimal: " + hexadecimal);
+    }
 
     /* Ejercicio 5: Crea un programa que genere un número aleatorio (entre 0 y 20) de entrada y lo guarde en una
     // variable. El sistema irá pidiendo números al usuario hasta que coincida con el aleatorio generado
