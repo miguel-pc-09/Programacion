@@ -12,7 +12,8 @@ public class Entrada {
         //ejercicioSeis();
         //ejercicioSiete();
        // ejercicioOcho();
-        ejercicioNueve();
+        //ejercicioNueve();
+        ejercicioDiez();
 
 
 
@@ -289,6 +290,26 @@ public class Entrada {
 
     // Crea un programa que permita al usuario ingresar un código de producto (como una cadena de caracteres) y,
     // utilizando una sentencia switch, muestre el nombre del producto y su precio correspondiente
-    public static void ejercicioDiez(){}
+    public static void ejercicioDiez(){
+        System.out.println("¿Qué producto quieres comprar?");
+        System.out.println("Codigo: 1234, Cocacola");
+        System.out.println("Codigo: 2345, Fanta");
+        System.out.println("Codigo: 3456, Agua mineral");
+        System.out.print("Introduce el codigo: ");
+        int producto = teclado.nextInt();
+        switch (producto){
+            case 1234:
+                System.out.println("Cocacola. Precio: 1.50");
+                break;
+            case 2345:
+                System.out.println("Fanta. Precio 1,20");
+                break;
+            case 3456:
+                System.out.println("Agua mineral. Precio: 0,50");
+                break;
+            default:
+                System.out.println("Codigo no valido.");
+        }
+    }
 }
 

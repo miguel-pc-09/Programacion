@@ -11,6 +11,8 @@ public class Biblioteca {
     // Lista de los libros
     private Hashtable<Integer, Libro> listaLibros;
 
+
+
     // Constructor
     public Biblioteca(){
         this.listaLibros = new Hashtable<>();

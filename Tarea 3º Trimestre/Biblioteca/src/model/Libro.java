@@ -24,8 +24,8 @@ package model;
 
     // Busca informacion de un libro del catalogo
     public void mostrarLibro(){
-        System.out.println("ISBN = " + ISBN);
-        System.out.println("Título = " + nombre);
+            System.out.println("ISBN = " + ISBN);
+            System.out.println("Título = " + nombre);
         System.out.println("Autor = " + autor);
         System.out.println("Genero = " + genero);
         System.out.println("Nº de Paginas = " + numeroPaginas);
