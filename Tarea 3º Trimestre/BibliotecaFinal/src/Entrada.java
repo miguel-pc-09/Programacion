@@ -1,6 +1,9 @@
 import controller.Biblioteca;
 import model.*;
+import utils.CatalogoLlenoException;
+import utils.LibroNoEncontradoException;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Entrada {
@@ -36,7 +39,7 @@ public class Entrada {
             int opcion = teclado.nextInt();
             teclado.nextLine();
 
-            //try {
+            try {
                 switch (opcion) {
                     case 1:
                         // Metodo para agregar libro
@@ -105,7 +108,7 @@ public class Entrada {
                         // No hacer nada solo mostrar el listado de libros
                         biblioteca.mostrarLibros();
                         break;
-                    /*case 5:
+                    case 5:
                         System.out.print("Ruta del fichero para guardar: ");
                         String rutaGuardar = teclado.nextLine();
                         biblioteca.guardarCatalogo(rutaGuardar);
@@ -116,20 +119,20 @@ public class Entrada {
                         String rutaCargar = teclado.nextLine();
                         biblioteca.cargarCatalogo(rutaCargar);
                         System.out.println("Catálogo cargado correctamente.");
-                        break;*/
+                        break;
                     case 7:
                         System.out.println("Saliendo de la biblioteca. ¡Hasta pronto!");
                         return;
                     default:
                         System.out.println("Opción no válida.");
                 }
-            /*} catch (CatalogoLlenoException | LibroNoEncontradoException e) {
+            } catch (CatalogoLlenoException | LibroNoEncontradoException e) {
                 System.out.println("Error: " + e.getMessage());
             } catch (RuntimeException e) {
                 System.out.println("Error de catálogo: " + e.getMessage());
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("Error de fichero: " + e.getMessage());
-            }*/
+            }
         }
     }
 }

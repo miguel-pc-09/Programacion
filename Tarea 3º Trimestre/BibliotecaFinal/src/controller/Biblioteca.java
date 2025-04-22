@@ -1,9 +1,20 @@
 package controller;
 
 import model.Libro;
+import utils.CatalogoLlenoException;
+import utils.LibroNoEncontradoException;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.Serializable;
+import java.lang.ClassNotFoundException;
+
 
 public class Biblioteca {
     private String nombre;

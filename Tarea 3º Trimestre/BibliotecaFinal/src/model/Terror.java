@@ -17,6 +17,7 @@ public class Terror extends Libro {
     @Override
     public void mostrarDatosLibro() {
         super.mostrarDatosLibro();
+        System.out.println("calificacion = " + calificacion);
     }
 
     // Getters y Setters
