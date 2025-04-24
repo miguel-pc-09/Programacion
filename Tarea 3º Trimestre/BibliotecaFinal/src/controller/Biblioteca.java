@@ -1,8 +1,8 @@
 package controller;
 
 import model.Libro;
-import utils.CatalogoLlenoException;
-import utils.LibroNoEncontradoException;
+import exception.CatalogoLlenoException;
+import exception.LibroNoEncontradoException;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -11,8 +11,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
-import java.io.Serializable;
 import java.lang.ClassNotFoundException;
 
 

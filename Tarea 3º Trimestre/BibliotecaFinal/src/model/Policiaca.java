@@ -1,14 +1,16 @@
 package model;
 
+import enums.Trama;
+
 public class Policiaca extends Libro {
 
-    private String trama; // Tipo de trama: misterio o intriga
+    private Trama trama; // Tipo de trama: misterio o intriga
 
     // Constructor vacio
     public Policiaca() {}
 
     // Constructor conTodo
-    public Policiaca(String titulo, String autor, int nPaginas, int isbn, String trama) {
+    public Policiaca(String titulo, String autor, int nPaginas, int isbn, Trama trama) {
         super(titulo, autor, nPaginas, isbn);
         this.trama = trama;
     }
@@ -21,11 +23,12 @@ public class Policiaca extends Libro {
     }
 
     // Getters y Setters
-    public String getTrama() {
+
+    public Trama getTrama() {
         return trama;
     }
 
-    public void setTrama(String trama) {
+    public void setTrama(Trama trama) {
         this.trama = trama;
     }
 }

@@ -1,14 +1,16 @@
 package model;
 
+import enums.TipoHumor;
+
 public class Comedia extends Libro {
 
-    private String tipoHumor; // Tipo de humor: irónico, sarcástico, romántico
+    private TipoHumor tipoHumor;
 
     // Constructor vacio
     public Comedia() {}
 
     // Constructor conTodo
-    public Comedia(String titulo, String autor, int nPaginas, int isbn, String tipoHumor) {
+    public Comedia(String titulo, String autor, int nPaginas, int isbn, TipoHumor tipoHumor) {
         super(titulo, autor, nPaginas, isbn);
         this.tipoHumor = tipoHumor;
     }
@@ -21,11 +23,12 @@ public class Comedia extends Libro {
     }
 
     // Getters y Setters
-    public String getTipoHumor() {
+
+    public TipoHumor getTipoHumor() {
         return tipoHumor;
     }
 
-    public void setTipoHumor(String tipoHumor) {
+    public void setTipoHumor(TipoHumor tipoHumor) {
         this.tipoHumor = tipoHumor;
     }
 }

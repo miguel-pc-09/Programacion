@@ -1,7 +1,8 @@
 import controller.Biblioteca;
+import enums.TipoFantasia;
 import model.*;
-import utils.CatalogoLlenoException;
-import utils.LibroNoEncontradoException;
+import exception.CatalogoLlenoException;
+import exception.LibroNoEncontradoException;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -74,7 +75,7 @@ public class Entrada {
                         } else if (tipo == 2) {
                             System.out.print("Tipo de fantasía: ");
                             String tf = teclado.nextLine();
-                            libro = new Fantasia(titulo, autor, paginas, isbn, tf);
+                            libro = new Fantasia(titulo, autor, paginas, isbn, TipoFantasia.valueOf());
                         } else if (tipo == 3) {
                             System.out.print("Trama (misterio/intriga): ");
                             String trama = teclado.nextLine();
@@ -82,7 +83,7 @@ public class Entrada {
                         } else if (tipo == 4) {
                             System.out.print("Tipo de humor: ");
                             String humor = teclado.nextLine();
-                            libro = new Comedia(titulo, autor, paginas, isbn, humor);
+                            libro = new Comedia(titulo, autor, paginas, isbn, tipohumor.valueOf(humor));
                         }
 
                         // Si libro es distinto de null añadimos

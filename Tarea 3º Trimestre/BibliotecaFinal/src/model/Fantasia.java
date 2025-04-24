@@ -1,14 +1,16 @@
 package model;
 
+import enums.TipoFantasia;
+
 public class Fantasia extends Libro {
 
-    private String tipoFantasia; // Tipo de fantasía: épica, urbana, etc.
+    private TipoFantasia tipoFantasia; // Tipo de fantasía: épica, urbana, etc.
 
     // Constructor vacio
     public Fantasia() {}
 
     // Constructor conTodo
-    public Fantasia(String titulo, String autor, int nPaginas, int isbn, String tipoFantasia) {
+    public Fantasia(String titulo, String autor, int nPaginas, int isbn, TipoFantasia tipoFantasia) {
         super(titulo, autor, nPaginas, isbn);
         this.tipoFantasia = tipoFantasia;
     }
@@ -20,12 +22,13 @@ public class Fantasia extends Libro {
         System.out.println("Tipo de fantasía: " + tipoFantasia);
     }
 
+
     // Getters y Setters
-    public String getTipoFantasia() {
+    public TipoFantasia getTipoFantasia() {
         return tipoFantasia;
     }
 
-    public void setTipoFantasia(String tipoFantasia) {
+    public void setTipoFantasia(TipoFantasia tipoFantasia) {
         this.tipoFantasia = tipoFantasia;
     }
 }
