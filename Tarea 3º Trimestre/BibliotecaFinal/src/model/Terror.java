@@ -1,6 +1,8 @@
 package model;
 
-public class Terror extends Libro {
+import java.io.Serializable;
+
+public class Terror extends Libro implements Serializable {
 
     private String calificacion; // Edad recomendada u opinión
 
@@ -18,6 +20,11 @@ public class Terror extends Libro {
     public void mostrarDatosLibro() {
         super.mostrarDatosLibro();
         System.out.println("calificacion = " + calificacion);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Calificación: " + calificacion;
     }
 
     // Getters y Setters

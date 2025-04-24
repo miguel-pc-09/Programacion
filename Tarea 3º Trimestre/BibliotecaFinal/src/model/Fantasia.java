@@ -2,7 +2,9 @@ package model;
 
 import enums.TipoFantasia;
 
-public class Fantasia extends Libro {
+import java.io.Serializable;
+
+public class Fantasia extends Libro implements Serializable {
 
     private TipoFantasia tipoFantasia; // Tipo de fantasía: épica, urbana, etc.
 
@@ -20,6 +22,11 @@ public class Fantasia extends Libro {
     public void mostrarDatosLibro() {
         super.mostrarDatosLibro();
         System.out.println("Tipo de fantasía: " + tipoFantasia);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Tipo de fantasía: " + tipoFantasia;
     }
 
 

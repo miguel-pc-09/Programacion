@@ -2,7 +2,9 @@ package model;
 
 import enums.Trama;
 
-public class Policiaca extends Libro {
+import java.io.Serializable;
+
+public class Policiaca extends Libro implements Serializable {
 
     private Trama trama; // Tipo de trama: misterio o intriga
 
@@ -20,6 +22,11 @@ public class Policiaca extends Libro {
     public void mostrarDatosLibro() {
         super.mostrarDatosLibro();
         System.out.println("Trama: " + trama);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Trama: " + trama;
     }
 
     // Getters y Setters

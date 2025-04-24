@@ -1,8 +1,11 @@
 package controller;
 
+import model.Libro;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OperacionesFicheros {
 
@@ -76,9 +79,9 @@ public class OperacionesFicheros {
 
         //3º  inicializa
         try{
-             fileWriter = new FileWriter(file, true); // si pongo (file, true)** modo apend no lo pisa
-             // 5 escribo lo que quiera dentro del fichero
-             fileWriter.write("Hola mundo"); // No sale nada, debemos guardar. que es el paso 4 cerrado
+            fileWriter = new FileWriter(file, true); // si pongo (file, true)** modo apend no lo pisa
+            // 5 escribo lo que quiera dentro del fichero
+            fileWriter.write("Hola mundo"); // No sale nada, debemos guardar. que es el paso 4 cerrado
 
         }catch(IOException e){
             System.out.println("Error al crear el fileWriter");
@@ -95,4 +98,17 @@ public class OperacionesFicheros {
         }
 
     }
+
+    // Metodo para exportar los libros
+    public void exportarLibrosTexto(ArrayList<Libro> libros, String path) {
+        try (FileWriter writer = new FileWriter(path)) {
+            for (Libro libro : libros) {
+                writer.write(libro.toString() + "\n");
+            }
+            System.out.println("Libros exportados a texto correctamente.");
+        } catch (IOException e) {
+            System.out.println("Error al exportar libros: " + e.getMessage());
+        }
+    }
 }
+

@@ -1,9 +1,11 @@
 import controller.Biblioteca;
+import controller.OperacionesFicheros;
 import enums.TipoFantasia;
 import model.*;
 import exception.CatalogoLlenoException;
 import exception.LibroNoEncontradoException;
-
+import enums.Trama;
+import enums.TipoHumor;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -12,6 +14,8 @@ public class Entrada {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
+        OperacionesFicheros operacionesFicheros = new OperacionesFicheros();
+        operacionesFicheros.crearFichero();
 
         // Crear  biblioteca
         Biblioteca biblioteca = new Biblioteca("Biblioteca UE", "Miguel Angel Perucha");
@@ -69,21 +73,24 @@ public class Entrada {
                         // Metodo según el tipo elegido y rellenar para guardar en su lista
                         Libro libro = null;
                         if (tipo == 1) {
-                            System.out.print("Calificación: ");
+                            System.out.print("Calificación (Edad recomendada): ");
                             String calificacion = teclado.nextLine();
                             libro = new Terror(titulo, autor, paginas, isbn, calificacion);
                         } else if (tipo == 2) {
-                            System.out.print("Tipo de fantasía: ");
-                            String tf = teclado.nextLine();
-                            libro = new Fantasia(titulo, autor, paginas, isbn, TipoFantasia.valueOf());
+                            System.out.print("Tipo de fantasía (epica, urbana, juvenil): ");
+                            String tfInput = teclado.nextLine().toLowerCase();
+                            TipoFantasia tf = TipoFantasia.valueOf(tfInput);
+                            libro = new Fantasia(titulo, autor, paginas, isbn, tf);
                         } else if (tipo == 3) {
                             System.out.print("Trama (misterio/intriga): ");
-                            String trama = teclado.nextLine();
+                            String tramaInput = teclado.nextLine().toLowerCase();
+                            Trama trama = Trama.valueOf(tramaInput);
                             libro = new Policiaca(titulo, autor, paginas, isbn, trama);
                         } else if (tipo == 4) {
-                            System.out.print("Tipo de humor: ");
-                            String humor = teclado.nextLine();
-                            libro = new Comedia(titulo, autor, paginas, isbn, tipohumor.valueOf(humor));
+                            System.out.print("Tipo de humor (ironico, sarcastico, romantico): ");
+                            String humorInput = teclado.nextLine().toLowerCase();
+                            TipoHumor humor = TipoHumor.valueOf(humorInput);
+                            libro = new Comedia(titulo, autor, paginas, isbn, humor);
                         }
 
                         // Si libro es distinto de null añadimos
@@ -110,16 +117,14 @@ public class Entrada {
                         biblioteca.mostrarLibros();
                         break;
                     case 5:
-                        System.out.print("Ruta del fichero para guardar: ");
-                        String rutaGuardar = teclado.nextLine();
-                        biblioteca.guardarCatalogo(rutaGuardar);
+                        biblioteca.guardarCatalogo("src/resources/libros.obj");
+                        operacionesFicheros.exportarLibrosTexto(biblioteca.obtenerTodosLosLibros(), "src/resources/libros.txt");
                         System.out.println("Catálogo guardado correctamente.");
                         break;
                     case 6:
-                        System.out.print("Ruta del fichero para cargar: ");
-                        String rutaCargar = teclado.nextLine();
-                        biblioteca.cargarCatalogo(rutaCargar);
+                        biblioteca.cargarCatalogo("src/resources/libros.obj");
                         System.out.println("Catálogo cargado correctamente.");
+                        biblioteca.mostrarLibros();
                         break;
                     case 7:
                         System.out.println("Saliendo de la biblioteca. ¡Hasta pronto!");

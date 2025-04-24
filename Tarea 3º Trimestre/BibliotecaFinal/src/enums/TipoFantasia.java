@@ -1,6 +1,6 @@
 package enums;
 
 public enum TipoFantasia {
-    epica, urbana
+    epica, urbana, juvenil
 
 }

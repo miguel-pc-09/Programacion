@@ -64,83 +64,104 @@ public class Biblioteca {
         return catalogo.getCantidad();
     }
 
+    // Metodo para guardar los libros
     public void guardarCatalogo(String ruta) throws IOException {
         if (catalogo == null) throw new RuntimeException("No existe un catálogo");
         catalogo.guardarCatalogo(ruta);
     }
 
+    // Metodo para cargar los libros
     public void cargarCatalogo(String ruta) throws IOException, ClassNotFoundException {
-        construirCatalogo(100); // capacidad arbitraria para reconstrucción
+        construirCatalogo(5); // capacidad arbitraria para reconstrucción
         catalogo.cargarCatalogo(ruta);
+    }
+    // Metodo para obtener todos los libros
+    public ArrayList<Libro> obtenerTodosLosLibros() {
+        if (catalogo == null) throw new RuntimeException("No existe un catálogo");
+        return new ArrayList<>(catalogo.getLibros());
     }
 
 
     // Clase anidada Catalogo
     public class Catalogo {
         private int capacidad;
-        private Hashtable<Integer, Libro> libros;
+        private ArrayList<Libro> libros;
 
         // Constructor vacio
         public Catalogo() {}
 
-
-        // Constructor conTodo
+        // Constructor completo
         public Catalogo(int capacidad) {
             this.capacidad = capacidad;
-            this.libros = new Hashtable<>();
+            this.libros = new ArrayList<>();
         }
 
-        //
+        // Metodo para agregar a la lista si no esta
         public void agregarLibro(Libro libro) throws CatalogoLlenoException {
             if (libros.size() >= capacidad) {
                 throw new CatalogoLlenoException("No hay espacio en el catálogo");
             }
-            if (libros.containsKey(libro.getIsbn())) {
-                System.out.println("El libro ya existe");
-            } else {
-                libros.put(libro.getIsbn(), libro);
+            for (Libro l : libros) {
+                if (l.getIsbn() == libro.getIsbn()) {
+                    System.out.println("El libro ya existe en el catálogo");
+                    return;
+                }
             }
+            libros.add(libro);
         }
 
+        // Metodo para eliminar un libro
         public void eliminarLibro(int isbn) throws LibroNoEncontradoException {
-            if (!libros.containsKey(isbn)) {
+            boolean eliminado = libros.removeIf(libro -> libro.getIsbn() == isbn);
+            if (!eliminado) {
                 throw new LibroNoEncontradoException("Libro con ISBN " + isbn + " no encontrado");
             }
-            libros.remove(isbn);
         }
 
+        // Metodo para buscar un libro
         public Libro buscarLibro(int isbn) throws LibroNoEncontradoException {
-            if (!libros.containsKey(isbn)) {
-                throw new LibroNoEncontradoException("Libro con ISBN " + isbn + " no encontrado");
+            for (Libro libro : libros) {
+                if (libro.getIsbn() == isbn) {
+                    return libro;
+                }
             }
-            return libros.get(isbn);
+            throw new LibroNoEncontradoException("Libro con ISBN " + isbn + " no encontrado");
         }
 
+        // metodo para mostrar todos los libros
         public void mostrarLibros() {
-            for (Libro libro : libros.values()) {
+            for (Libro libro : libros) {
                 libro.mostrarDatosLibro();
                 System.out.println("------");
             }
         }
 
+        // Metodo para mostrar la cantidad de libros
         public int getCantidad() {
             return libros.size();
         }
 
+        // Metodo para guardar el arraylist
         public void guardarCatalogo(String ruta) throws IOException {
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta))) {
-                oos.writeObject(new ArrayList<>(libros.values()));
+                oos.writeObject(libros);
             }
         }
 
+        // Metodo para cargar el arraylist
         public void cargarCatalogo(String ruta) throws IOException, ClassNotFoundException {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta))) {
                 ArrayList<Libro> lista = (ArrayList<Libro>) ois.readObject();
                 for (Libro libro : lista) {
-                    libros.put(libro.getIsbn(), libro);
+                    libros.add(libro);
                 }
             }
         }
-    }
 
+        // metodo para exportar los libros
+        public ArrayList<Libro> getLibros() {
+            return libros;
+        }
+    }
 }
+

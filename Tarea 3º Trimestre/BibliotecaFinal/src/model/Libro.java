@@ -1,6 +1,8 @@
 package model;
 
-abstract public class Libro {
+import java.io.Serializable;
+
+abstract public class Libro implements Serializable {
 
     private String titulo;
     private String autor;
@@ -26,6 +28,10 @@ abstract public class Libro {
         System.out.println("ISBN: " + isbn);
     }
 
+    @Override
+    public String toString() {
+        return "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + nPaginas + ", ISBN: " + isbn;
+    }
 
     // Getters y Setters
     public String getTitulo() {
