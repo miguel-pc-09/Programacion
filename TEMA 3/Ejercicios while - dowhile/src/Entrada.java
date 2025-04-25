@@ -10,8 +10,8 @@ public class Entrada {
         //ejercicioCinco();
         //ejercicioSeis();
         //ejercicioSiete();
-        ejercicioOcho();
-        //ejercicioNueve();
+        //ejercicioOcho();
+        ejercicioNueve();
 
     }
 
@@ -252,9 +252,97 @@ Al seleccionar una de las opciones el sistema realizará la operación correspon
 pantalla de la siguiente forma "El resultado de la operación es:". Una vez terminada la operación volverá a mostrar el
  menú y pedir dos números nuevos. (MenuCalculo)
     * */
-    public static void ejercicioOcho(){}
+    public static void ejercicioOcho(){
+        int opcion;
+        int operando1;
+        int operando2;
+        int resultado;
 
-    //Ejercicio 9:3. Modifica el ejercicio 9 para hacer una calculadora de cambios de base. Nada más ejecutar se
+        do {
+            // Mostrar el menú
+            System.out.println("\n- Bienvenido a la calculadora -");
+            System.out.println("1. Suma");
+            System.out.println("2. Resta");
+            System.out.println("3. Multiplicacion");
+            System.out.println("4. Division");
+            System.out.println("5. Modulo");
+            System.out.println("6. Salir");
+            System.out.print("Introduce la opción seleccionada: ");
+
+            opcion = teclado.nextInt();
+
+
+            resultado = 0;
+
+
+            // Evaluar la opción
+            switch (opcion) {
+                case 1:
+                    System.out.println("Vas a Sumar");
+                    System.out.print("Introduce el primer operando: ");
+                    operando1 = teclado.nextInt();
+                    System.out.print("Introduce el segundo operando: ");
+                    operando2 = teclado.nextInt();
+                    resultado = operando1 + operando2;
+                    System.out.println("El resultado de la suma es: " + resultado);
+                    break;
+                case 2:
+                    System.out.println("Vas a Restar");
+                    System.out.print("Introduce el primer operando: ");
+                    operando1 = teclado.nextInt();
+                    System.out.print("Introduce el segundo operando: ");
+                    operando2 = teclado.nextInt();
+                    resultado = operando1 - operando2;
+                    System.out.println("El resultado de la resta es: " + resultado);
+                    break;
+                case 3:
+                    System.out.println("Vas a Multiplicar");
+                    System.out.print("Introduce el primer operando: ");
+                    operando1 = teclado.nextInt();
+                    System.out.print("Introduce el segundo operando: ");
+                    operando2 = teclado.nextInt();
+                    resultado = operando1 * operando2;
+                    System.out.println("El resultado de la multiplicación es: " + resultado);
+                    break;
+                case 4:
+                    System.out.println("Vas a Dividir");
+                    System.out.print("Introduce el primer operando: ");
+                    operando1 = teclado.nextInt();
+                    System.out.print("Introduce el segundo operando: ");
+                    operando2 = teclado.nextInt();
+                    if (operando2 != 0) {
+                        resultado = operando1 / operando2;
+                        System.out.println("El resultado de la división es: " + resultado);
+                    } else {
+                        System.out.println("No se puede dividir entre cero");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Modulo");
+                    System.out.print("Introduce el primer operando: ");
+                    operando1 = teclado.nextInt();
+                    System.out.print("Introduce el segundo operando: ");
+                    operando2 = teclado.nextInt();
+                    if (operando2 != 0) {
+                        resultado = operando1 % operando2;
+                        System.out.println("El resultado del módulo es: " + resultado);
+                    } else {
+                        System.out.println("No se puede dividir entre cero");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no contemplada");
+            }
+
+        } while (opcion != 6); // Repite hasta que el usuario pulse 6w
+
+        teclado.close();
+    }
+
+    //Ejercicio 9: Modifica el ejercicio 9 para hacer una calculadora de cambios de base. Nada más ejecutar se
     // mostrarán las opciones disponibles - Bienvenido a la aplicación de cambios de base
     //    - Introduce el número que quieres cambiar de base:
     //    - Pasar a ba
@@ -269,6 +357,53 @@ pantalla de la siguiente forma "El resultado de la operación es:". Una vez term
     // una de las opciones el sistema realizará la conversión correspondiente y mostrará el resultado por pantalla de
     // la siguiente forma "El número XX en base10 es igual que XX en baseXX". Una vez terminada la operación volverá a
     // mostrar el menú y pedir un número. (MenuBases)
-    public static void ejercicioNueve(){}
+    public static void ejercicioNueve(){
+        int opcion;
+
+        do {
+            // Mostrar menú
+            System.out.println("\n- Bienvenido a la aplicación de cambios de base -");
+            int numero;
+
+            // Pedir número mayor que 0
+            do {
+                System.out.print("Introduce el número que quieres cambiar de base (mayor que 0): ");
+                numero = teclado.nextInt();
+                if (numero <= 0) {
+                    System.out.println("No válido, introduce otro.");
+                }
+            } while (numero <= 0);
+
+            // Mostrar opciones de conversión
+            System.out.println("1. Pasar a base 2 (binario)");
+            System.out.println("2. Pasar a base 8 (octal)");
+            System.out.println("3. Pasar a base 16 (hexadecimal)");
+            System.out.println("4. Salir");
+            System.out.print("Selecciona la base a la que quieres pasar: ");
+            opcion = teclado.nextInt();
+
+            // Evaluar la opción
+            switch (opcion) {
+                case 1:
+                    System.out.println("El número " + numero + " en base10 es igual que " + Integer.toBinaryString(numero) + " en base2.");
+                    break;
+                case 2:
+                    System.out.println("El número " + numero + " en base10 es igual que " + Integer.toOctalString(numero) + " en base8.");
+                    break;
+                case 3:
+                    System.out.println("El número " + numero + " en base10 es igual que " + Integer.toHexString(numero) + " en base16.");
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no contemplada");
+            }
+
+        } while (opcion != 4); // Repetir hasta que el usuario elija salir
+
+        teclado.close();
+    }
+
 
 }
