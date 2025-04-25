@@ -1,9 +1,13 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Entrada {
+    static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         //ejercicioUno();
         //ejercicioDos();
         //ejercicioTres();
-        //ejercicioCuatro();
+        ejercicioCuatro();
         //ejercicioCinco();
         //ejercicioSeis();
         //ejercicioSiete();
@@ -17,7 +21,7 @@ public class Entrada {
         //ArrayListOcho();
         //ArrayListNueve();
         //ArrayListDiez();
-        
+
     }
     /*
     *   ARRAYS
@@ -25,26 +29,86 @@ public class Entrada {
     /* Ejercicio1: Realiza un programa que pida 10 números por teclado y que los almacene en un array. A continuación
      se mostrará el contenido de ese array junto al índice (0 – 9
     */
-    public static void ejercicioUno(){}
+    public static void ejercicioUno(){
+        System.out.println("Dame 10 numeros y despues te los mostrare");
+        int[] numero  = new int[10];
+        /*for (int i = 0; i < numero.length; i++) {
+            System.out.print("Dame el numero "+(i+1)+": ");
+            numero[i] = teclado.nextInt();
+        }
+        System.out.println("Los numeros que has introducido son: ");
+        for (int i = 0; i < numero.length; i++) {
+            System.out.println("El numero en la posicion "+i+" es: "+numero[i]);
+        }*/
+        // Sin tanto mensaje
+        System.out.println("Introduce 10 números seguidos:");
 
-    /* Ejercicio 2: 2. Crear un programa que genere 30 números aleatorios entre 0 - 10 y los guarde en un array.
+        for (int i = 0; i < numero.length; i++) {
+            numero[i] = teclado.nextInt(); // sin mensaje individual
+        }
+
+        System.out.println("\nContenido del array:");
+        for (int i = 0; i < numero.length; i++) {
+            System.out.print(numero[i]+ " ");
+        }
+
+    }
+
+
+    /* Ejercicio 2: Crear un programa que genere 30 números aleatorios entre 0 - 10 y los guarde en un array.
      Una vez metidos, se deberá mostrar:
     - Numero de puntos obtenidos
     - Media de puntos obtenidos
     */
-    public static void ejercicioDos(){}
+    public static void ejercicioDos(){
+        System.out.println("Generando 30 números aleatorios entre 0 y 10...");
+        int[] numeros = new int[30];
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int)(Math.random()*10);
+        }
+        System.out.println("Imprimiendo los numeros generados");
+        Arrays.sort(numeros);
+        for (int item : numeros) {
+            System.out.print(item+" ");
+        }
+    }
 
     /*Ejercicio 3: Escribe un programa que lea 10 números por teclado, los guarde en un array y que luego los muestre:
     - en orden inverso, es decir, el primero que se introduce es el último en mostrarse
     - en orden normal, es decir, el primero que se muestra es el primero que se ha introducido */
-    public static void ejercicioTres(){}
+    public static void ejercicioTres(){
+        System.out.println("Dame 10 numeros y despues te los mostrare");
+        int[] numero  = new int[10];
+        for (int i = 0; i < numero.length; i++) {
+            
+            numero[i] = teclado.nextInt();
+        }
+        System.out.println("Los numeros que has introducido son: ");
+        for (int i = numero.length-1; i >= 0; i--) {
+            System.out.println(numero[i]);
+        }
+    }
 
-    /*Ejercicio 4: 4. Define tres arrays de 20 números enteros cada una, con nombres numero, cuadrado y cubo.
+    /*Ejercicio 4: Define tres arrays de 20 números enteros cada una, con nombres numero, cuadrado y cubo.
     Carga el array numero con valores aleatorios entre 0 y 100.
     - En el array cuadrado se deben almacenar los cuadrados de los valores que hay en el array numero.
     - En el array cubo se deben almacenar los cubos de los valores que hay en numero.
     Una ver realizado lo anterior muestra el contenido de los tres arrays dispuesto en tres columnas.*/
-    public static void ejercicioCuatro(){}
+    public static void ejercicioCuatro(){
+        int[] numero = new int[20];
+        int[] cuadrado = new int[20];
+        int[] cubo = new int[20];
+
+        for (int i = 0; i < numero.length; i++) {
+            numero[i] = (int)(Math.random()*100);
+            cuadrado[i] = numero[i]*numero[i];
+            cubo[i] = numero[i]*numero[i]*numero[i];
+        }
+        System.out.printf("%-10s,%-10s,%-10s\n", "Numero", "Cuadrado", "Cubo");
+        for (int i = 0; i < numero.length; i++) {
+            System.out.printf("%-10d%-10d%-10d\n", numero[i], cuadrado[i], cubo[i]);
+        }
+    }
 
     /* Ejercicio 5:Realiza un programa que pida 8 números enteros, los guarde en un array y que luego muestre esos
      números junto con la palabra “par” o “impar” según proceda. */
