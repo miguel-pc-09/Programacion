@@ -6,7 +6,12 @@ public class Entrada {
         //ejercicioUno();
         //ejercicioDos();
         //ejercicioTres();
-        ejercicioCuatro();
+        //ejercicioCuatro();
+        //ejercicioCinco();
+        //ejercicioSeis();
+        //ejercicioSiete();
+        ejercicioOcho();
+        //ejercicioNueve();
 
     }
 
@@ -127,7 +132,23 @@ public class Entrada {
     // variable. El sistema irá pidiendo números al usuario hasta que coincida con el aleatorio generado
     // (en caso de no coincidir mostrará el mensaje "Lo siento, intentalo de nuevo"). Cuando coincida el sistema
     // deberá mostar el mensaje "Enhorabuena, has acertado el número en 5 intentos" (Adivina)*/
-    public static void ejercicioCinco(){}
+    public static void ejercicioCinco(){
+        int numeroAleatorio = (int) (Math.random() * 21);
+        int intentos = 0;
+        int numeroUsuario;
+
+        System.out.println("Adivina el número entre 0 y 20");
+        do{
+            System.out.println("Introduce un número: ");
+            numeroUsuario = teclado.nextInt();
+            intentos++;
+
+            if (numeroUsuario != numeroAleatorio) {
+                System.out.println("Lo siento, intentalo de nuevo");
+            }
+        }while (numeroUsuario != numeroAleatorio);
+        System.out.println("Enhorabuena, has acertado el número en " + intentos + " intentos");
+    }
 
     /*Ejercicio 6: Modifica el ejercicio anterior para que una vez adivinado el número el sistema muestre el
     siguiente mensaje: "Quieres volver a jugar (S/N)":
@@ -135,9 +156,46 @@ public class Entrada {
     - En caso de introducir S la aplicación empezará de nuevo (generando un aleatorio, pidiendo números hasta
        acertar el generado, etc...) Cuando el usuario acierte el número generado se mostrará un mensaje diciendo
         si ha superado el record de intentos (si ha hecho menos intentos que las veces anteriores) (AdivinaRecord)
-    *
-    * */
-    public static void ejercicioSeis(){}
+    */
+    public static void ejercicioSeis(){
+        String jugarOtraVez;
+        int record = Integer.MAX_VALUE;
+
+        do {
+            int numeroAleatorio = (int) (Math.random() * 21);
+            int intentos = 0;
+            int numeroUsuario;
+
+            System.out.println("\nAdivina el número entre 0 y 20");
+
+            do {
+                System.out.print("Introduce un número: ");
+                numeroUsuario = teclado.nextInt();
+                intentos++;
+
+                if (numeroUsuario != numeroAleatorio) {
+                    System.out.println("Lo siento, inténtalo de nuevo");
+                }
+            } while (numeroUsuario != numeroAleatorio);
+
+            System.out.println("Enhorabuena, has acertado el número en " + intentos + " intentos");
+
+            if (intentos < record) {
+                record = intentos;
+                System.out.println("🎉 ¡Nuevo récord de intentos!");
+            } else {
+                System.out.println("El récord actual es de " + record + " intentos.");
+            }
+
+            teclado.nextLine(); // limpiar buffer del nextInt
+            System.out.print("¿Quieres volver a jugar? (S/N): ");
+            jugarOtraVez = teclado.nextLine().toUpperCase();
+
+        } while (jugarOtraVez.equals("S"));
+
+        System.out.println("¡Gracias por jugar! 😄");
+
+    }
 
     /* Ejercicio 7: Realizar un menú de 4 opciones, donde se mostrará por pantalla el siguiente formato
     - Bienvenido a la aplicación del menú - 1. Opción1 - 2. Opción2 - 3. Opción3 - 4. Opción4 - 5. Salir - Introduce la opción seleccionada
@@ -145,7 +203,47 @@ Una vez mostrado la última línea, el sistema esperará a que el usuario introd
  seleccionada aparecerá un mensaje por pantalla que ponga "La opción seleccionada es X".
  En el caso de meter una diferente pondrá "opción no contemplada". El programa se repetiría hasta que introduzca el 5 (MenuSimple)
     * */
-    public static void ejercicioSiete(){}
+    public static void ejercicioSiete(){
+        int opcion;
+
+        do {
+            // Mostrar el menú
+            System.out.println("\n- Bienvenido a la aplicación del menú -");
+            System.out.println("1. Opción1");
+            System.out.println("2. Opción2");
+            System.out.println("3. Opción3");
+            System.out.println("4. Opción4");
+            System.out.println("5. Salir");
+            System.out.print("Introduce la opción seleccionada: ");
+
+            opcion = teclado.nextInt();
+
+            // Evaluar la opción
+            switch (opcion) {
+                case 1:
+                    System.out.println("La opción seleccionada es 1");
+                    break;
+                case 2:
+                    System.out.println("La opción seleccionada es 2");
+                    break;
+                case 3:
+                    System.out.println("La opción seleccionada es 3");
+                    break;
+                case 4:
+                    System.out.println("La opción seleccionada es 4");
+                    break;
+                case 5:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no contemplada");
+            }
+
+        } while (opcion != 5); // Repetir hasta que el usuario pulse 5
+
+        teclado.close();
+
+    }
 
     /*Ejercicio 8: Modifica el ejercicio anterior para hacer una calculadora. Nada más ejecutar se mostrarán
     las opciones disponibles - Bienvenido a la aplicación de calculos - Introduce operando uno: - Introduce operando
@@ -159,7 +257,8 @@ pantalla de la siguiente forma "El resultado de la operación es:". Una vez term
     //Ejercicio 9:3. Modifica el ejercicio 9 para hacer una calculadora de cambios de base. Nada más ejecutar se
     // mostrarán las opciones disponibles - Bienvenido a la aplicación de cambios de base
     //    - Introduce el número que quieres cambiar de base:
-    //    - Pasar a base2
+    //    - Pasar a ba
+    //    se2
     //    - Pasar a base8
     //    - Pasar a base16
     //    - Salir
