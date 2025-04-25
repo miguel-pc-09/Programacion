@@ -70,17 +70,44 @@ public class Entrada {
         // aqui diremos dende va el primero numero generado, al final
         numerosGenerados[numerosGenerados.length-1] = axuliar; */
         // Ahora rotando al contrario el ultimo pasa al primero
-        int aux = numerosGenerados[numerosGenerados.length-1];
+       /* int aux = numerosGenerados[numerosGenerados.length-1];
         for (int i = numerosGenerados.length - 1; i > 0 ; i--) { // >= 1 o >0 para que cuando llegue al ultimo de la izquierda no salte error
             numerosGenerados[i] = numerosGenerados[i - 1];
 
         }
-        numerosGenerados[0] = aux; // el ultimo pasa a ser el primero
+        numerosGenerados[0] = aux; // el ultimo pasa a ser el primero*/
+       /* // 0 1 2 3 4 5 6 7 8 9 Rotamos por pares
+        // 1 0 3 2 5 4 7 6 9 8
+        for (int i = 0; i < numerosGenerados.length; i+=2) {
+            int aux = numerosGenerados[i]; // guardamos el primer elemento
+            numerosGenerados[i] = numerosGenerados[i+1];
+            numerosGenerados[i+1] = aux;
+        }
+        */
+
+        // 0 1 2 3 4
+        // 4 3 2 1 0 invertimos el array
+
+        //[0 - 2)
+        // 0 -> posicion 0 con el de la posicion lenght -1
+        // 1 -> posicion 1 con el de la posicion lenght -2
+        // 2- > posicion 2 con el de la posicion lenght -3
+        for (int i = 0; i < numerosGenerados.length / 2; i++) {
+            int aux = numerosGenerados[i];
+            // El numero 1 y ultimo se cambian de posicion
+            //numerosGenerados[i] = numerosGenerados[numerosGenerados.length - 1];
+            //numerosGenerados[numerosGenerados.length - 1] = aux;
+            // i = 1 -> Rota todo desde modo espejo
+            numerosGenerados[i] = numerosGenerados[numerosGenerados.length - 1 -i];
+            numerosGenerados[numerosGenerados.length - 1 -i] = aux;
+            // i =
+        }
+
         System.out.println("Rotando numeros");
         for (int item : numerosGenerados) {
                 System.out.print(item+" ");
         }
-        // lo malo que el de la primera posicion desaparece no vuelve al final. Lo guardamos int auxiliar
+        // lo malo que el de la primera posicion desaparece no vuelve al final. Lo guardamos int auxiliar linea 66
 
 
 
