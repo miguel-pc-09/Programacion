@@ -1,3 +1,4 @@
+import javax.xml.transform.Source;
 import java.util.Scanner;
 
 public class Entrada {
@@ -13,7 +14,14 @@ public class Entrada {
         //ejercicioSiete();
         // ejercicioOcho();
         // ejercicioNueve();
-        ejercicioDiez();
+        //ejercicioDiez();
+        //ejercicioOnce();
+        //ejercicioDoce();
+        //ejercicioTrece();
+        //ejercicioCatorce();
+        //ejercicioQuince();
+        //ejercicioDieciseis();
+        ejercicioDieciocho();
 
 
 
@@ -201,6 +209,153 @@ public class Entrada {
         System.out.println("Numero de alumnos suspendidos: "+suspensos);
     }
 
-    // Ejercicio 11: 
+    // Ejercicio 11: Dibujar por consola un Cuadrado de + . Para ello se pedirá por consola el tamaño del lado y se
+    // imprimirá el cuadrado con el siguiente formato (CuadradoFor)
+    public static void ejercicioOnce(){
+        System.out.println("Introduce el tamaño del lado: ");
+        int lado = teclado.nextInt();
+        for(int i = 0; i<lado;i++){
+            for(int j = 0; j<lado;j++){
+                System.out.print("+");
+            }
+            System.out.println();
+        }
+    }
+
+    // Ejercicio 12: Modificar el ejercicio anterior para dibujar un cuadrado donde las aristas exteriores tengan el
+    // caracter - y la parte inferior del cuadrado tenga el caracter +. (CuadradoFormato)
+    public static void ejercicioDoce(){
+        System.out.println("Introduce el tamaño del lado: ");
+        int lado = teclado.nextInt();
+        for(int i = 0; i<lado;i++){
+            for(int j = 0; j<lado;j++){
+                if(i==0 || i==lado-1){
+                    System.out.print("-");
+                }else{
+                    System.out.print("+");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    // Ejercicio 13: Pedir una palabra por teclado y mostrar su contraria. Por ejemplo se introducirá la palabra
+    // programacion y se mostrará por consola la palabra noicamargorp (InversaPalabra)
+    public static void ejercicioTrece(){
+        System.out.println("Introduce una palabra: ");
+        String palabra = teclado.nextLine();
+        String palabraInversa = "";
+        for (int i = palabra.length()-1; i >= 0 ; i--) {
+            palabraInversa += palabra.charAt(i);
+        }
+        System.out.println("La palabra invertida es: "+palabraInversa);
+    }
+
+    // Ejercicio 14: Pedir una palabra por teclado y comprobar si es o no palindromo. Una palabra es palíndromo cuando
+    // se lee igual de izquierda a derecha que de derecha a izquierda. Por ejemplo ana, oro, radar. Para poder hacer
+    // comprobación no se tendrán en cuenta mayusculas ni acentos (CapicuaPalabra)
+    public static void ejercicioCatorce(){
+        System.out.println("Introduce una palabra y te dire si es capicua: ");
+        String palabra = teclado.nextLine();
+        String palabraInversa = "";
+        for (int i = palabra.length()-1; i >= 0 ; i--) {
+            palabraInversa += palabra.charAt(i);
+        }
+            if(palabra.equals(palabraInversa)){
+                System.out.println("La palabra es capicua.");
+            }else{
+                System.out.println("La palabra no es capicua.");
+            }
+
+    }
+
+    // Ejercicio 15 : 15. Pedir por consola una frase. Una vez introducida. Indicar:
+    //    1. Cuantas oraciones tiene
+    //    2. Cuantas letras tiene
+    //    3. Cuantas palabras tiene
+    //    4. Cuantas letras tiene (sin contar espacios ni símbolos de puntuación)
+    public static void ejercicioQuince(){
+        System.out.println("Introduce una frase: ");
+        String frase = teclado.nextLine();
+
+        char[] caracteres = frase.toCharArray();
+
+        int numeroOraciones =0;
+        int numeroLetras = 0 ;
+        int numeroPalabras = 0 ;
+        int letrasSinEspacios = 0;
+
+        boolean enPalabra = false;
+        for (int i = 0; i < caracteres.length; i++) {
+            if(caracteres[i] == '.' || caracteres[i] == '!' || caracteres[i] == '?'){
+                numeroOraciones++;
+            }
+            if(caracteres[i] == ' '){
+                if(enPalabra){
+                    numeroPalabras++;
+                    enPalabra = false;
+                }
+            }else{
+                enPalabra = true;
+                numeroLetras++;
+                if(caracteres[i] != '.' && caracteres[i] != ',' && caracteres[i] != ';' && caracteres[i] != ':'){
+                    letrasSinEspacios++;
+                }
+            }
+        }
+        System.out.println("Número de oraciones: " + numeroOraciones);
+        System.out.println("Número de letras (a-z, A-Z): " + numeroLetras);
+        System.out.println("Número de palabras: " + numeroPalabras);
+        System.out.println("Número de letras sin espacios ni símbolos: " + letrasSinEspacios);
+
+        teclado.close();
+    }
+
+    /* Ejercicio 16: Crear un programa que permita realizar un juego de adivinación. Para ello el sistema nada más
+     empezar generará un número aleatorio entre 1 y 30. Tras la generación de este número el usuario contará con
+    10 intentos para poder adivinarlo. Para lo cual se irá pidiendo un números y en el caso de aceptarlo terminará
+    el proceso con el mensaje "Has adivinado el número en X intentos". En el caso de agotar los intentos aparecerá
+     el menaje "Lo siento, has agotado todos los intentos”*/
+    public static void ejercicioDieciseis(){
+        int numeroAleatorio = (int)(Math.random()*30+1);
+        int intentos = 10;
+        boolean adivinado = false;
+
+        System.out.println("Bienvenido al juego de adivinación. Tienes 10 intentos para adivinar el número entre 1 y 30.");
+       for(int i = 0; i<intentos;i++){
+            System.out.println("Introduce un número: ");
+            int numeroUsuario = teclado.nextInt();
+            if(numeroUsuario == numeroAleatorio){
+                System.out.println("Has adivinado el número en "+(i+1)+" intentos.");
+                adivinado = true;
+                break;
+            }else if(numeroUsuario < numeroAleatorio){
+                System.out.println("El número es mayor.");
+            }else{
+                System.out.println("El número es menor.");
+            }
+        }
+        if(!adivinado){
+            System.out.println("Lo siento, has agotado todos los intentos. El número era: "+numeroAleatorio);
+       }
+    }
+
+    /* Ejercicio 17: Calcular el factorial de un número entre 0 y 20. El factorial de un número se define del siguiente
+     modo: F(0) = 1; F(1) = 1; F(n) = n(n-1)(n-2) ... 1 siendo n>1. (Factorial)
+    */
+    public static void ejercicioDieciocho(){
+        System.out.println("Introduce un número entre 0 y 20: ");
+        int numero = teclado.nextInt();
+        int factorial = 1;
+
+        if(numero < 0 || numero > 20){
+            System.out.println("El número debe estar entre 0 y 20.");
+        }else{
+            for(int i = numero; i > 1; i--){
+                factorial *= i;
+            }
+            System.out.println("El factorial de " + numero + " es: " + factorial);
+        }
+    }
 
 }
