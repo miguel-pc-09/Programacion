@@ -97,4 +97,18 @@ public class Metodo {
         media = (double) sumatorio / numeros.length;
         System.out.println("La media calculada es: "+media);
     }
+    // Imaginemos que vamos a un cajero y queremos sacar dinero. Para esto necesitamos el pin y la cantidad que queremos
+    public void sacarDinero(int pin, int cantidad){ // por parametros le diremos que es lo que necesitamos
+        int saldo = 100;
+        if(pin == 1234){
+            System.out.println("Pin correcto");
+            if(cantidad>100){
+                System.out.println("Saldo insuficiente");
+            }else {
+                System.out.println("Sacando dinero");
+            }
+        }else {
+            System.out.println("Pin incorrecto");
+        }
+    }
 }

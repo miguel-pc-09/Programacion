@@ -60,6 +60,14 @@ public class Entrada {
 
         metodos.calcularMedia(new int[]{1, 5, 7, 9, 12, 87, 13});
         metodos.calcularMedia(new int[]{1, 5, 7});
+        System.out.println();
+
+        // Cajero
+        metodos.sacarDinero(2345, 300); // nos sacara un aviso de pin incorrecto
+        System.out.println();
+        metodos.sacarDinero(1234,300); // pin correcto pero saldo insuficiente
+        System.out.println();
+        metodos.sacarDinero(1234,100); // pin correcto y saldo suficiente
     }
 
     // Anteriormente creabamos los metodos con static y lo llamabamos dentro de la clase main
