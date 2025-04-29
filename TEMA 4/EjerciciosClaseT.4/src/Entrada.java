@@ -11,7 +11,8 @@ public class Entrada {
         //arrayNoRepetidos1();
         //generadorPalabras1();
         //ahorcadoArray();
-        invisibleArray();
+        //invisibleArray();
+        menuArray();
     }
     /*1. Crear un array de 5 posiciones:
     - se le pedirá al usuario que introduzca cada unos de los elementos del array
@@ -476,5 +477,127 @@ segundo al tercero, ..., y el último al primero).
            String receptor = lista.get((i + 1) % lista.size()); // circular: el último regala al primero
            System.out.println("- " + emisor + " -> " + receptor);
          }*/
+    }
+
+    /*1. Crear un programa que mediante un menú permita:
+    - Crear un array de números enteros con n posiciones pedidas.
+    - Rellenar el array creado con números aleatorios.
+    - Rellenar el array creado con números pedidos por consola.
+    - Ordenar el array de mayor a menor
+    - Clonar el array con una una mayor longitud. Para ello pedir al usuario la nueva longitud (si esta es inferior a la que la existe continuar pidiendo)
+    - Mover todas las posiciones (pedir al usuario que seleccione la orientación)
+    - Mostrar por pantalla el array según está*/
+    public static void menuArray(){
+        Integer[] array = null;
+        int opcion;
+        Random random = new Random();
+        do{
+            System.out.println("\n===== MENÚ =====");
+            System.out.println("1. Crear array con N posiciones");
+            System.out.println("2. Rellenar array con números aleatorios");
+            System.out.println("3. Rellenar array manualmente");
+            System.out.println("4. Ordenar array de mayor a menor");
+            System.out.println("5. Clonar array con mayor longitud");
+            System.out.println("6. Mover posiciones del array");
+            System.out.println("7. Mostrar array");
+            System.out.println("8. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = teclado.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    System.out.print("Introduce la longitud del array: ");
+                    int n = teclado.nextInt();
+                    array = new Integer[n];
+                    System.out.println("✅ Array creado con " + n + " posiciones.");
+                }
+                case 2 -> {
+                    if (array == null) {
+                        System.out.println("❌ Primero debes crear el array.");
+                        break;
+                    }
+                    for (int i = 0; i < array.length; i++) {
+                        array[i] = random.nextInt(100);
+                    }
+                    System.out.println("✅ Array rellenado con números aleatorios.");
+                }
+                case 3 -> {
+                    if (array == null) {
+                        System.out.println("❌ Primero debes crear el array.");
+                        break;
+                    }
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.print("Introduce el valor para la posición " + i + ": ");
+                        array[i] = teclado.nextInt();
+                    }
+                    System.out.println("✅ Array rellenado manualmente.");
+                }
+                case 4 -> {
+                    if (array == null) {
+                        System.out.println("❌ Primero debes crear el array.");
+                        break;
+                    }
+                    Arrays.sort(array, Collections.reverseOrder());
+                    System.out.println("✅ Array ordenado de mayor a menor.");
+                }
+                case 5 -> {
+                    if (array == null) {
+                        System.out.println("❌ Primero debes crear el array.");
+                        break;
+                    }
+                    int nuevaLongitud;
+                    do {
+                        System.out.print("Introduce la nueva longitud (debe ser mayor que " + array.length + "): ");
+                        nuevaLongitud = teclado.nextInt();
+                    } while (nuevaLongitud <= array.length);
+
+                    Integer[] nuevoArray = new Integer[nuevaLongitud];
+                    for (int i = 0; i < array.length; i++) {
+                        nuevoArray[i] = array[i];
+                    }
+                    for (int i = array.length; i < nuevaLongitud; i++) {
+                        nuevoArray[i] = 0;
+                    }
+                    array = nuevoArray;
+                    System.out.println("✅ Array clonado con nueva longitud: " + nuevaLongitud);
+                }
+                case 6 -> {
+                    if (array == null) {
+                        System.out.println("❌ Primero debes crear el array.");
+                        break;
+                    }
+                    System.out.print("¿Quieres mover a la derecha (D) o izquierda (I)? ");
+                    String orientacion = teclado.next().toUpperCase();
+                    if (orientacion.equals("D")) {
+                        int ultimo = array[array.length - 1];
+                        for (int i = array.length - 1; i > 0; i--) {
+                            array[i] = array[i - 1];
+                        }
+                        array[0] = ultimo;
+                        System.out.println("✅ Array movido a la derecha.");
+                    } else if (orientacion.equals("I")) {
+                        int primero = array[0];
+                        for (int i = 0; i < array.length - 1; i++) {
+                            array[i] = array[i + 1];
+                        }
+                        array[array.length - 1] = primero;
+                        System.out.println("✅ Array movido a la izquierda.");
+                    } else {
+                        System.out.println("❌ Opción no válida. Usa D o I.");
+                    }
+                }
+                case 7 -> {
+                    if (array == null) {
+                        System.out.println("❌ No hay array creado aún.");
+                        break;
+                    }
+                    System.out.println("📦 Array actual: " + Arrays.toString(array));
+                }
+                case 8 -> System.out.println("👋 Saliendo del menú...");
+                default -> {
+                    if (opcion < 1 || opcion > 8) System.out.println("❌ Opción no válida.");
+                }
+            }
+        } while (opcion != 8);
+
     }
 }
