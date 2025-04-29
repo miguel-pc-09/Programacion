@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -22,8 +21,8 @@ public class Entrada {
         //ArrayListSeis();
         //ArrayListSiete();
         //ArrayListOcho();
-        ArrayListNueve();
-        //ArrayListDiez();
+        //ArrayListNueve();
+        ArrayListDiez();
 
     }
     /*
@@ -597,5 +596,73 @@ Al finalizar el programa deberá indicar cuántas modificaciones se han realizad
     }
 
     /*ArrayList10:Crea un programa que permita realizar las funcionalidades de los ejercicions 5, 6 y 7 mediante un menú */
-    public static void ArrayListDiez(){}
+    public static void ArrayListDiez() {
+
+        ArrayList<Coche> listaCoches = new ArrayList<>();
+        listaCoches.add(new Coche("Ford", "Focus", 100, 1234));
+        listaCoches.add(new Coche("Audi", "A4", 150, 2345));
+        listaCoches.add(new Coche("BMW", "X5", 200, 6577));
+        listaCoches.add(new Coche("Ford", "Fiesta", 95, 123456));
+        listaCoches.add(new Coche("Audi", "Q7", 286, 87654));
+
+        System.out.println("Bienvenido");
+
+        int opcion;
+        do {
+            System.out.println("------MENU-----");
+            System.out.println("1. Lista de todos los vehiculos. ");
+            System.out.println("2. Lista modelo de coches.");
+            System.out.println("3. Marca de coche.");
+            System.out.println("4. Salir.");
+            System.out.println("Elige una opcion: ");
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println(" Lista de todos los coches. ");
+                    for (Coche coche : listaCoches) {
+                        System.out.println("Marca: " + coche.marca + "\tModelo: " + coche.modelo + "\tCV: "
+                                + coche.caballos + "\tmatricula: " + coche.matricula);
+                    }
+                    break;
+                case 2:
+                    System.out.println("Lista de modelos de coches: ");
+                    for (Coche coche : listaCoches) {
+                        System.out.println("Modelo: " + coche.modelo);
+                    }
+                    break;
+                case 3:
+                    System.out.println("Introduce la marca que quieres buscar: ");
+                    String marcaBuscar = teclado.next();
+                    boolean encontrado = false;
+                    for (Coche coche : listaCoches) {
+                        if(coche.marca.equalsIgnoreCase(marcaBuscar)){
+                            System.out.println("Marca: " + coche.marca);
+                            encontrado = true;
+                        }
+                    }
+                    if(!encontrado){
+                        System.out.println("No se han encontrado coches de la marca " + marcaBuscar);
+                    }
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opcion no valida");
+            }
+        } while (opcion != 4);
+
+    }
+    public static void mostrarCoches(){
+        ArrayList<Coche> listaCoches = new ArrayList<>();
+        listaCoches.add(new Coche("Ford", "Focus", 100, 1234));
+        listaCoches.add(new Coche("Audi", "A4", 150, 2345));
+        listaCoches.add(new Coche("BMW", "X5", 200, 6577));
+        listaCoches.add(new Coche("Ford", "Fiesta", 95, 123456));
+        listaCoches.add(new Coche("Audi", "Q7", 286, 87654));
+        System.out.println(listaCoches);
+
+
+    }
 }
